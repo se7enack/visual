@@ -1,14 +1,11 @@
 #!/usr/bin/env python3
 
-
 import matplotlib.pyplot as plt
 import numpy as np
 import random
 from random import randrange
 
-def get_iter(c:complex, thresh:int =4, max_steps:int =25) -> int:
-    # Z_(n) = (Z_(n-1))^2 + c
-    # Z_(0) = c
+def get_iter(c:complex, thresh:int = 4, max_steps:int = 25) -> int:
     z=c
     i=1
     while i<max_steps and (z*z.conjugate()).real<thresh:
@@ -27,13 +24,15 @@ def plotter(n, thresh, max_steps=25):
             img[y][x] = 255 - it
     return img
 
-cmaps=['viridis', 'plasma', 'inferno', 'magma', 'cividis', 'Greys', 'Purples', 'Blues', 'Greens', 'Oranges', 'Reds', 'YlOrBr', 'YlOrRd', 'OrRd', 'PuRd', 'RdPu', 'BuPu', 'GnBu', 'PuBu', 'YlGnBu', 'PuBuGn', 'BuGn', 'YlGn']
-cmap=random.choice(cmaps)
-print("Random cmap color chosen from list is: ", cmap)
+cmaps=['viridis', 'plasma', 'inferno', 'magma', 'cividis', 'Greys', 'Purples', 'Blues', 'Greens', 'Oranges', \
+'Reds', 'YlOrBr', 'YlOrRd', 'OrRd', 'PuRd', 'RdPu', 'BuPu', 'GnBu', 'PuBu', 'YlGnBu', 'PuBuGn', 'BuGn', 'YlGn']
 
+cmap=random.choice(cmaps)
+
+print("Random cmap color chosen from list is: ", cmap)
 n = randrange(2000)
 img = plotter(n, thresh=randrange(100), max_steps=randrange(100))
 plt.imshow(img, cmap=cmap)
-#plt.imshow(img, cmap="plasma")
 plt.axis("off")
 plt.show()
+   
