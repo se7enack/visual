@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-
 import matplotlib.pyplot as plt
 import numpy as np
 import random
@@ -36,4 +35,4 @@ img = plotter(n, thresh=4, max_steps=randrange(150))
 plt.imshow(img, cmap=cmap)
 plt.axis("off")
 plt.show()
-    
+ 
